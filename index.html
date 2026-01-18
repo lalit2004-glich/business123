@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOLVO - Career Guidance Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Top Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="logo.png" alt="logo" length="150px" width="150px">
+                <!-- <div class="logo-icon">S</div> -->
+            </div>
+            
+            <!-- desktop Navigation -->
+            <div class="nav-center">
+                <a href="#" class="nav-link" data-page="dashboard">Dashboard</a>
+                <a href="#" class="nav-link" data-page="resources">Resources</a>
+                <a href="#" class="nav-link" data-page="community">Community</a>
+                <div class="dropdown">
+                    <a href="#" class="nav-link">More <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-item" data-page="assessment">Career Assessment</a>
+                        <a href="#" class="dropdown-item" data-page="jobs">Job Search</a>
+                        <a href="#" class="dropdown-item" data-page="interview">Interview Prep</a>
+                        <a href="#" class="dropdown-item" data-page="resume">Resume Builder</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- right Side Icons -->
+            <div class="nav-right">
+                <button class="icon-btn notification-btn" id="notificationBtn" data-count="3">
+                    <i class="far fa-bell"></i>
+                    <span class="notification-badge" id="notificationBadge">3</span>
+                </button>
+                <button class="icon-btn" id="addContentBtn">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="icon-btn message-btn" id="messageBtn" data-count="5">
+                    <i class="far fa-envelope"></i>
+                    <span class="message-badge" id="messageBadge">5</span>
+                </button>
+                <div class="user-avatar" id="userMenuBtn">R</div>
+                
+                <!-- user Dropdown Menu -->
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-dropdown-header">
+                        <div class="user-dropdown-avatar">R</div>
+                        <div>
+                            <h4>Rahul Sharma</h4>
+                            <p>rahul@example.com</p>
+                        </div>
+                    </div>
+                    <a href="#" class="user-dropdown-item" data-page="profile">
+                        <i class="fas fa-user"></i> My Profile
+                    </a>
+                    <a href="#" class="user-dropdown-item" data-page="settings">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                    <a href="#" class="user-dropdown-item" data-page="subscription">
+                        <i class="fas fa-crown"></i> Subscription
+                    </a>
+                    <hr>
+                    <a href="#" class="user-dropdown-item text-danger" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+            
+            <!-- mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- mobile Navigation Right -->
+    <div class="mobile-nav-right">
+        <button class="icon-btn notification-btn" id="mobileNotificationBtn" data-count="3">
+            <i class="far fa-bell"></i>
+            <span class="notification-badge">3</span>
+        </button>
+        <div class="mobile-user-avatar" id="mobileUserMenuBtn">R</div>
+    </div>
+
+    <!-- mobile Sidebar Menu -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="mobile-user-card">
+            <div class="mobile-user-avatar-sidebar">R</div>
+            <div class="mobile-user-info">
+                <h3>Rahul Sharma</h3>
+                <p>Data Scientist</p>
+                <p class="user-email">rahul@example.com</p>
+            </div>
+        </div>
+        
+        <div class="mobile-menu-items">
+            <a href="#" class="mobile-menu-item active" data-page="dashboard">
+                <div class="mobile-menu-icon"><i class="fas fa-home"></i></div>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="mobile-menu-item" data-page="career-path">
+                <div class="mobile-menu-icon"><i class="fas fa-road"></i></div>
+                <span>Career Path</span>
+            </a>
+            <a href="#" class="mobile-menu-item" data-page="skill-tracker">
+                <div class="mobile-menu-icon"><i class="fas fa-chart-line"></i></div>
+                <span>Skill Tracker</span>
+            </a>
+            <a href="#" class="mobile-menu-item" data-page="roadmap">
+                <div class="mobile-menu-icon"><i class="fas fa-map-signs"></i></div>
+                <span>My Roadmap</span>
+            </a>
+            <a href="#" class="mobile-menu-item" data-page="portfolio">
+                <div class="mobile-menu-icon"><i class="fas fa-briefcase"></i></div>
+                <span>Portfolio</span>
+            </a>
+            <a href="#" class="mobile-menu-item" data-page="resources">
+                <div class="mobile-menu-icon"><i class="fas fa-book"></i></div>
+                <span>Resources</span>
+            </a>
+            <a href="#" class="mobile-menu-item" data-page="community">
+                <div class="mobile-menu-icon"><i class="fas fa-users"></i></div>
+                <span>Community</span>
+            </a>
+        </div>
+        
+        <!-- mobile Navigation Icons -->
+        <div class="mobile-bottom-nav">
+            <button class="icon-btn" id="mobileAddBtn">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button class="icon-btn" id="mobileMessageBtn" data-count="5">
+                <i class="far fa-envelope"></i>
+                <span class="message-badge">5</span>
+            </button>
+            <a href="#" class="mobile-menu-item" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- main Container -->
+    <div class="main-container">
+        <!-- Desktop Sidebar -->
+        <aside class="sidebar" id="desktopSidebar">
+            <div class="user-card">
+                <div class="user-avatar-sidebar">R</div>
+                <div class="user-info">
+                    <h3>Rahul Sharma</h3>
+                    <p>Data Scientist</p>
+                    <p class="user-level">Level: <span class="level-badge">Beginner</span></p>
+                </div>
+            </div>
+            
+            <div class="menu-items">
+                <a href="#" class="menu-item active" data-page="dashboard">
+                    <div class="menu-icon"><i class="fas fa-home"></i></div>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="menu-item" data-page="career-path">
+                    <div class="menu-icon"><i class="fas fa-road"></i></div>
+                    <span>Career Path</span>
+                </a>
+                <a href="#" class="menu-item" data-page="skill-tracker">
+                    <div class="menu-icon"><i class="fas fa-chart-line"></i></div>
+                    <span>Skill Tracker</span>
+                </a>
+                <a href="#" class="menu-item" data-page="roadmap">
+                    <div class="menu-icon"><i class="fas fa-map-signs"></i></div>
+                    <span>My Roadmap</span>
+                </a>
+                <a href="#" class="menu-item" data-page="portfolio">
+                    <div class="menu-icon"><i class="fas fa-briefcase"></i></div>
+                    <span>Portfolio</span>
+                </a>
+                <a href="#" class="menu-item" data-page="resources">
+                    <div class="menu-icon"><i class="fas fa-book"></i></div>
+                    <span>Resources</span>
+                </a>
+                <a href="#" class="menu-item" data-page="community">
+                    <div class="menu-icon"><i class="fas fa-users"></i></div>
+                    <span>Community</span>
+                </a>
+                <a href="#" class="menu-item" data-page="settings">
+                    <div class="menu-icon"><i class="fas fa-cog"></i></div>
+                    <span>Settings</span>
+                </a>
+            </div>
+            
+            <!-- progress Section in Sidebar -->
+            <div class="sidebar-progress">
+                <div class="progress-summary">
+                    <h4>Your Progress</h4>
+                    <div class="circular-progress-small">
+                        <svg width="60" height="60">
+                            <circle class="circular-bg" cx="25" cy="25" r="27"></circle>
+                            <circle class="circular-progress-bar" cx="25" cy="25" r="27"></circle>
+                        </svg>
+                        <div class="progress-percent-small">42%</div>
+                    </div>
+                    <p>2 of 7 steps completed</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- main Content Area -->
+        <main class="main-content" id="mainContent">
+            <!-- Content will be loaded dynamically based on page -->
+            <div id="pageContent">
+                <!-- Dashboard Page (Default) -->
+                <section class="page active" id="dashboard-page">
+                    <!-- Welcome Banner -->
+                    <section class="welcome-banner">
+                        <h1>Welcome, Rahul 👋</h1>
+                        <p>Ready to level up your career!</p>
+                        <button class="btn btn-primary" id="dailyChallengeBtn">Start Daily Challenge</button>
+                    </section>
+                    
+                    <!-- Career Path Card -->
+                    <section class="card">
+                        <div class="card-title">
+                            <span>My Career Path</span>
+                            <button class="btn btn-text" id="editCareerPathBtn">Edit</button>
+                        </div>
+                        <div class="career-path-content">
+                            <div class="career-info">
+                                <div class="career-name">Data Scientist</div>
+                                
+                                <div class="progress-stages">
+                                    <div class="progress-stage">
+                                        <div class="stage-dot completed"></div>
+                                        <span class="stage-label">Beginner</span>
+                                    </div>
+                                    <div class="progress-stage">
+                                        <div class="stage-dot active"></div>
+                                        <span class="stage-label active">Intermediate</span>
+                                    </div>
+                                    <div class="progress-stage">
+                                        <div class="stage-dot"></div>
+                                        <span class="stage-label">Advanced</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar" id="career-progress"></div>
+                                </div>
+                                
+                                <p class="progress-text"><span class="progress-highlight">2 / 7 steps</span> completed</p>
+                                
+                                <div class="progress-details">
+                                    <div class="progress-item">
+                                        <span class="progress-item-name">Python Basics</span>
+                                        <span class="progress-item-status completed">Completed</span>
+                                    </div>
+                                    <div class="progress-item">
+                                        <span class="progress-item-name">Statistics</span>
+                                        <span class="progress-item-status completed">Completed</span>
+                                    </div>
+                                    <div class="progress-item">
+                                        <span class="progress-item-name">Data Analysis</span>
+                                        <span class="progress-item-status in-progress">In Progress</span>
+                                    </div>
+                                    <div class="progress-item">
+                                        <span class="progress-item-name">Machine Learning</span>
+                                        <span class="progress-item-status pending">Pending</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="career-illustration">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- continue Learning Card -->
+                    <section class="card">
+                        <div class="card-title">
+                            <span>Continue Learning</span>
+                            <button class="btn btn-text" id="viewAllCoursesBtn">View All</button>
+                        </div>
+                        <div class="checklist">
+                            <div class="checklist-item completed">
+                                <div class="checklist-content">
+                                    <div class="checklist-icon completed">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span class="checklist-text">Basic Statistics</span>
+                                </div>
+                                <button class="btn btn-small btn-outline" data-course="stats-review">Review</button>
+                            </div>
+                            
+                            <div class="checklist-item completed">
+                                <div class="checklist-content">
+                                    <div class="checklist-icon completed">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <span class="checklist-text">Intro to Python</span>
+                                </div>
+                                <button class="btn btn-small btn-outline" data-course="python-review">Review</button>
+                            </div>
+                            
+                            <div class="checklist-item locked">
+                                <div class="checklist-content">
+                                    <div class="checklist-icon locked">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <span class="checklist-text">Python for Data Analysis</span>
+                                </div>
+                                <div class="locked-badge">LOCKED</div>
+                            </div>
+                            
+                            <div class="checklist-item locked">
+                                <div class="checklist-content">
+                                    <div class="checklist-icon locked">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <span class="checklist-text">Data Visualization Basics</span>
+                                </div>
+                                <div class="locked-badge">LOCKED</div>
+                            </div>
+                            
+                            <div class="checklist-item locked">
+                                <div class="checklist-content">
+                                    <div class="checklist-icon locked">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <span class="checklist-text">Machine Learning Essentials</span>
+                                </div>
+                                <div class="locked-badge">LOCKED</div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Recommended Resources -->
+                    <section class="card">
+                        <div class="card-title">
+                            <span>Recommended Resources</span>
+                            <button class="btn btn-text" id="refreshResourcesBtn">Refresh</button>
+                        </div>
+                        <div class="resources-grid" id="resourcesGrid">
+                            <!-- Resources will be loaded dynamically -->
+                        </div>
+                    </section>
+                </section>
+
+                <!-- Career Path Page -->
+                <section class="page" id="career-path-page">
+                    <div class="page-header">
+                        <h2>Career Path</h2>
+                        <p>Track your progress towards becoming a Data Scientist</p>
+                    </div>
+                    <!-- content for career path page -->
+                </section>
+
+                <!-- skill Tracker Page -->
+                <section class="page" id="skill-tracker-page">
+                    <div class="page-header">
+                        <h2>Skill Tracker</h2>
+                        <p>Monitor your skill development</p>
+                    </div>
+                    <!-- Content for skill tracker page -->
+                </section>
+            </div>
+        </main>
+
+        <!-- Right Panel (Desktop Only) -->
+        <aside class="right-panel" id="rightPanel">
+            <!-- Curated Resources Card -->
+            <div class="right-card">
+                <div class="right-card-title">Curated Resources For You</div>
+                <div class="curated-content">
+                    <span class="platform-badge">Skillshare</span>
+                    <div class="course-name">Data Analysis with Python: From Zero to Hero</div>
+                    <p class="course-description">Master Python for data analysis in this comprehensive course</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 12 hours</span>
+                        <span><i class="fas fa-star"></i> 4.8/5</span>
+                    </div>
+                    <button class="btn btn-primary btn-block" id="subscribeCourseBtn">+ Subscribe</button>
+                </div>
+            </div>
+            
+            <!-- daily Goals Card -->
+            <div class="right-card">
+                <div class="right-card-title">Today's Goals</div>
+                <div class="daily-goals">
+                    <div class="goal-item">
+                        <input type="checkbox" id="goal1" class="goal-checkbox">
+                        <label for="goal1">Complete Python exercises</label>
+                    </div>
+                    <div class="goal-item">
+                        <input type="checkbox" id="goal2" class="goal-checkbox" checked>
+                        <label for="goal2">Watch statistics tutorial</label>
+                    </div>
+                    <div class="goal-item">
+                        <input type="checkbox" id="goal3" class="goal-checkbox">
+                        <label for="goal3">Practice SQL queries</label>
+                    </div>
+                    <div class="goal-item">
+                        <input type="checkbox" id="goal4" class="goal-checkbox">
+                        <label for="goal4">Read industry article</label>
+                    </div>
+                </div>
+                <button class="btn btn-text btn-block" id="addGoalBtn">+ Add Goal</button>
+            </div>
+            
+            <!-- Industry Trends Card -->
+            <div class="right-card">
+                <div class="right-card-title">Industry Trends</div>
+                <div class="trends-container">
+                    <div class="trend-item">
+                        <span class="trend-tag">Python</span>
+                        <span class="trend-growth">+24% demand</span>
+                    </div>
+                    <div class="trend-item">
+                        <span class="trend-tag">Data Visualization</span>
+                        <span class="trend-growth">+18% demand</span>
+                    </div>
+                    <div class="trend-item">
+                        <span class="trend-tag">SQL</span>
+                        <span class="trend-growth">+22% demand</span>
+                    </div>
+                    <div class="trend-item">
+                        <span class="trend-tag">Machine Learning</span>
+                        <span class="trend-growth">+32% demand</span>
+                    </div>
+                    <div class="trend-item">
+                        <span class="trend-tag">Big Data</span>
+                        <span class="trend-growth">+28% demand</span>
+                    </div>
+                    <div class="trend-item">
+                        <span class="trend-tag">Statistics</span>
+                        <span class="trend-growth">+15% demand</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Goals & Stats Card -->
+            <div class="right-card">
+                <div class="right-card-title">Goals & Stats</div>
+                <div class="stats-container">
+                    <div class="circular-progress">
+                        <svg>
+                            <circle class="circular-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="circular-progress-bar" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="progress-percent">42%</div>
+                    </div>
+                    
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <span>Level</span>
+                            <span class="stat-value">Beginner</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Days active</span>
+                            <span class="stat-value">5 days</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Lessons completed</span>
+                            <span class="stat-value">12/30</span>
+                        </div>
+                        <div class="stat-item">
+                            <span>Current streak</span>
+                            <span class="stat-value">3 days</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-upgrade btn-block" id="upgradePlanBtn">
+                        <i class="fas fa-crown"></i> Upgrade to Pro
+                    </button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="btn btn-text" id="markAllReadBtn">Mark all as read</button>
+        </div>
+        <div class="notification-list">
+            <!-- Notifications will be loaded dynamically -->
+        </div>
+    </div>
+
+    <!-- Add Content Modal -->
+    <div class="modal" id="addContentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Content</h3>
+                <button class="modal-close" id="closeAddModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addContentForm">
+                    <div class="form-group">
+                        <label for="contentType">Content Type</label>
+                        <select id="contentType" class="form-control">
+                            <option value="course">Course</option>
+                            <option value="resource">Resource</option>
+                            <option value="goal">Goal</option>
+                            <option value="project">Project</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contentTitle">Title</label>
+                        <input type="text" id="contentTitle" class="form-control" placeholder="Enter title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contentDescription">Description</label>
+                        <textarea id="contentDescription" class="form-control" rows="3" placeholder="Enter description"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Add Content</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
